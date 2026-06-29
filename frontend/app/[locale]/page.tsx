@@ -14,7 +14,7 @@ export default async function Home({ params }: Props) {
 
   return (
     <main className="mx-auto max-w-7xl px-4 py-6">
-      {/* sidebar · hero · top-sellers — the charulata homepage grid */}
+      {/* sidebar · hero · top-sellers — the charulata homepage grid (desktop) */}
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-[16rem_1fr_20rem]">
         <div className="hidden lg:block">
           <CategorySidebar />
@@ -23,6 +23,12 @@ export default async function Home({ params }: Props) {
         <div className="hidden lg:block">
           <TopSellers compact />
         </div>
+      </div>
+
+      {/* mobile/tablet: category menu + top sellers stacked below the hero */}
+      <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:hidden">
+        <CategorySidebar />
+        <TopSellers compact />
       </div>
 
       {/* full-width category rows */}

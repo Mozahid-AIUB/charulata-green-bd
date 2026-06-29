@@ -6,6 +6,11 @@
     "contact": "Contact Us",
     "booking": "Book Appointment"
   },
+  "comingSoon": {
+    "title": "Coming soon",
+    "text": "This page is being planted. Check back shortly.",
+    "back": "Back to home"
+  },
   "header": {
     "searchPlaceholder": "Search for products",
     "wishlist": "Wishlist",
