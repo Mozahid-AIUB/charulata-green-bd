@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fafaf7;
+  --background: #eef1ea;
   --foreground: #1f2a20;
 }
 
@@ -37,6 +37,17 @@
 body {
   background: var(--background);
   color: var(--foreground);
+}
+
+/* premium soft shadow for product cards — layered, low-opacity */
+.card-premium {
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.card-premium:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 1px 2px rgba(22, 51, 28, 0.06),
+    0 12px 28px -8px rgba(22, 51, 28, 0.22);
 }
 
 /* strip the browser's native search clear button / extra padding so the
