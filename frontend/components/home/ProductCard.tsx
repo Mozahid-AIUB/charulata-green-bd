@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
-import type { Product, Localized } from "@/lib/mock-data";
+import { ShoppingCart, Search, Heart } from "lucide-react";
+import { discountPercent, type Product, type Localized } from "@/lib/mock-data";
 
 function formatPrice(product: Product): string {
   if (product.priceMax === null) {
@@ -15,6 +16,7 @@ export function ProductCard({ product }: { product: Product }) {
   const locale = useLocale() as keyof Localized;
   const t = useTranslations("product");
   const name = product.name[locale] ?? product.name.en;
+  const discount = discountPercent(product);
 
   return (
     <div className="group relative flex flex-col overflow-hidden rounded-xl border border-brand-100 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg">
@@ -26,19 +28,45 @@ export function ProductCard({ product }: { product: Product }) {
           sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
           className="object-cover transition duration-500 group-hover:scale-110"
         />
-        {product.soldOut && (
-          <span className="absolute left-2 top-2 rounded bg-ink-900/90 px-2 py-1 text-xs font-medium text-white">
-            {t("soldOut")}
+
+        {/* discount badge — top left */}
+        {discount && (
+          <span className="absolute left-2 top-2 rounded bg-brand-600 px-2 py-1 text-xs font-bold text-white shadow">
+            -{discount}%
           </span>
         )}
-        {/* plant-tag price — nursery hang-tag, the page's signature element */}
-        <span className="absolute bottom-2 left-2 inline-flex items-center gap-1.5 rounded-md border border-accent-500 bg-white/95 px-2.5 py-1 text-sm font-bold text-accent-600 shadow-sm">
-          <span className="h-1.5 w-1.5 rounded-full bg-accent-500" aria-hidden />
-          {formatPrice(product)}
-        </span>
+
+        {/* hover action icons — slide in from the right */}
+        <div className="absolute right-2 top-2 flex translate-x-12 flex-col gap-2 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100">
+          <button type="button" aria-label={t("addToCart")} className="rounded-full bg-white p-2 text-ink-800 shadow-md transition hover:bg-brand-600 hover:text-white">
+            <ShoppingCart className="h-4 w-4" />
+          </button>
+          <button type="button" aria-label="Quick view" className="rounded-full bg-white p-2 text-ink-800 shadow-md transition hover:bg-brand-600 hover:text-white">
+            <Search className="h-4 w-4" />
+          </button>
+          <button type="button" aria-label="Add to wishlist" className="rounded-full bg-white p-2 text-ink-800 shadow-md transition hover:bg-brand-600 hover:text-white">
+            <Heart className="h-4 w-4" />
+          </button>
+        </div>
+
+        {/* sold out overlay */}
+        {product.soldOut && (
+          <div className="absolute inset-0 flex items-center justify-center bg-ink-900/40">
+            <span className="rounded bg-ink-900/90 px-3 py-1 text-sm font-bold uppercase tracking-wide text-white">
+              {t("soldOut")}
+            </span>
+          </div>
+        )}
       </div>
-      <div className="flex flex-1 flex-col gap-2 p-3">
+
+      <div className="flex flex-1 flex-col gap-1.5 p-3">
         <h3 className="text-sm font-medium text-brand-900">{name}</h3>
+        <div className="flex items-baseline gap-2">
+          <span className="text-sm font-bold text-brand-700">{formatPrice(product)}</span>
+          {discount && product.originalPrice && (
+            <span className="text-xs text-gray-400 line-through">৳{product.originalPrice}</span>
+          )}
+        </div>
         <button
           type="button"
           disabled={product.soldOut}

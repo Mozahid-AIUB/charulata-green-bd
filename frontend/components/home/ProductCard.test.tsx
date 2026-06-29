@@ -53,4 +53,15 @@ describe("ProductCard", () => {
     expect(screen.getByText("Sold out")).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Out of stock" })).toBeInTheDocument();
   });
+
+  it("shows a discount badge and strikethrough original price", () => {
+    renderWith("en", { ...product, priceMin: 650, priceMax: null, originalPrice: 750 });
+    expect(screen.getByText("-13%")).toBeInTheDocument();
+    expect(screen.getByText("৳750")).toBeInTheDocument();
+  });
+
+  it("shows no discount badge when there is no original price", () => {
+    renderWith("en", { ...product, priceMax: null });
+    expect(screen.queryByText(/-\d+%/)).not.toBeInTheDocument();
+  });
 });

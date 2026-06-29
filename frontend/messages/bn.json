@@ -27,7 +27,12 @@
   },
   "sections": {
     "topSellers": "টপ সেলার",
-    "viewAll": "সব দেখুন"
+    "viewAll": "সব দেখুন",
+    "loadMore": "আরও পণ্য দেখুন",
+    "tabAll": "সকল প্রকার",
+    "tabLocal": "দেশি",
+    "tabForeign": "বিদেশি",
+    "tabSeasonal": "বারোমাসি"
   },
   "footer": {
     "tagline": "সবুজ কিনুন, সবুজ বাঁচান।",

@@ -5,7 +5,14 @@ import { CategoryShowcase } from "./CategoryShowcase";
 import type { Category } from "@/lib/mock-data";
 
 const messages = {
-  sections: { viewAll: "View all" },
+  sections: {
+    viewAll: "View all",
+    loadMore: "Load more products",
+    tabAll: "All",
+    tabLocal: "Local",
+    tabForeign: "Foreign",
+    tabSeasonal: "All-season",
+  },
   product: { addToCart: "Add to cart", outOfStock: "Out of stock", soldOut: "Sold out" },
 };
 
@@ -39,5 +46,11 @@ describe("CategoryShowcase", () => {
     renderWith("en");
     expect(screen.getByText("Rambutan")).toBeInTheDocument();
     expect(screen.getByText("Avocado")).toBeInTheDocument();
+  });
+
+  it("renders sub-filter tabs", () => {
+    renderWith("en");
+    expect(screen.getByRole("button", { name: "All" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Local" })).toBeInTheDocument();
   });
 });

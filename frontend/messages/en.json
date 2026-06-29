@@ -27,7 +27,12 @@
   },
   "sections": {
     "topSellers": "Top Sellers",
-    "viewAll": "View all"
+    "viewAll": "View all",
+    "loadMore": "Load more products",
+    "tabAll": "All",
+    "tabLocal": "Local",
+    "tabForeign": "Foreign",
+    "tabSeasonal": "All-season"
   },
   "footer": {
     "tagline": "Buy green to save green.",
