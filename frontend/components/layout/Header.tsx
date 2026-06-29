@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
-import { Search, Heart, ShoppingCart, User } from "lucide-react";
+import { Search, Heart, ShoppingCart, User, Leaf } from "lucide-react";
 import { Facebook, Twitter, Instagram, Linkedin } from "./SocialIcons";
 import { LanguageToggle } from "./LanguageToggle";
 
@@ -25,8 +25,9 @@ export function Header() {
       <div className="mx-auto max-w-7xl px-4">
         {/* top bar: logo · nav · social + toggle */}
         <div className="flex items-center justify-between gap-4 py-3">
-          <Link href={p("")} className="font-serif text-2xl font-semibold italic tracking-wide">
-            Charulata<span className="text-brand-400">.</span>
+          <Link href={p("")} className="flex items-center gap-1.5 font-serif text-2xl font-semibold italic tracking-wide">
+            <Leaf className="h-6 w-6 -rotate-45 text-brand-400" fill="currentColor" strokeWidth={1} />
+            Charulata
           </Link>
           <nav className="hidden items-center gap-7 text-sm font-medium uppercase tracking-wide md:flex">
             {navItems.map((item) => (
@@ -48,11 +49,11 @@ export function Header() {
 
         {/* search row: full-width input + green button + wishlist/cart/account */}
         <div className="flex items-center gap-3 pb-3">
-          <div className="flex flex-1 overflow-hidden rounded-md bg-white">
+          <div className="flex flex-1 overflow-hidden rounded-md bg-white ring-1 ring-white/20">
             <input
               type="search"
               placeholder={tHeader("searchPlaceholder")}
-              className="w-full px-4 py-2.5 text-sm text-ink-900 placeholder:text-gray-400 focus:outline-none"
+              className="w-full bg-white px-4 py-3 text-sm text-ink-900 placeholder:text-gray-400 focus:outline-none"
             />
             <button
               type="button"

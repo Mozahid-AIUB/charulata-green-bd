@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import useEmblaCarousel from "embla-carousel-react";
 import { motion } from "framer-motion";
@@ -11,27 +12,30 @@ type Slide = {
   id: number;
   headline: { en: string; bn: string };
   sub: { en: string; bn: string };
-  gradient: string;
+  image: string;
 };
+
+const hero = (id: string) =>
+  `https://images.unsplash.com/${id}?auto=format&fit=crop&w=1400&q=80`;
 
 const slides: Slide[] = [
   {
     id: 1,
     headline: { en: "Green Friday", bn: "গ্রিন ফ্রাইডে" },
     sub: { en: "Such discounts you have not seen", bn: "এমন ছাড় আগে দেখেননি" },
-    gradient: "from-brand-400 via-brand-500 to-brand-700",
+    image: hero("photo-1466692476868-aef1dfb1e735"),
   },
   {
     id: 2,
     headline: { en: "Monsoon Greens", bn: "বর্ষার সবুজ" },
     sub: { en: "Fresh arrivals for the rainy season", bn: "বর্ষার নতুন গাছের সম্ভার" },
-    gradient: "from-brand-500 via-brand-600 to-brand-800",
+    image: hero("photo-1416879595882-3373a0480b5b"),
   },
   {
     id: 3,
     headline: { en: "Indoor Picks", bn: "ঘরের সেরা গাছ" },
     sub: { en: "Brighten every corner of your home", bn: "ঘরের প্রতিটি কোণ সবুজে ভরিয়ে তুলুন" },
-    gradient: "from-brand-300 via-brand-500 to-brand-600",
+    image: hero("photo-1485955900006-10f4d324d411"),
   },
 ];
 
@@ -62,16 +66,19 @@ export function HeroCarousel() {
         <div className="flex">
           {slides.map((s) => (
             <div key={s.id} className="relative min-w-0 flex-[0_0_100%]">
-              <div
-                className={`relative flex min-h-[360px] flex-col items-center justify-center gap-5 bg-gradient-to-br ${s.gradient} px-6 py-16 text-center text-white`}
-              >
-                {/* radiating sunburst accent */}
+              <div className="relative flex min-h-[360px] flex-col items-center justify-center gap-5 overflow-hidden px-6 py-16 text-center text-white">
+                {/* real plant photo */}
+                <Image
+                  src={s.image}
+                  alt=""
+                  fill
+                  priority={s.id === 1}
+                  sizes="(max-width: 1024px) 100vw, 60vw"
+                  className="object-cover"
+                />
+                {/* dark green gradient overlay for text readability + depth */}
                 <div
-                  className="pointer-events-none absolute inset-0 opacity-20"
-                  style={{
-                    background:
-                      "repeating-conic-gradient(from 0deg at 50% 45%, rgba(255,255,255,.5) 0deg 6deg, transparent 6deg 12deg)",
-                  }}
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-brand-900/90 via-brand-800/50 to-brand-900/30"
                   aria-hidden
                 />
                 <span className="relative -rotate-2 rounded-md bg-accent-500 px-4 py-1.5 text-sm font-bold uppercase tracking-wide shadow-md">
