@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { Facebook, Twitter, Instagram, Linkedin } from "./SocialIcons";
+import { PAYMENT_METHODS } from "./PaymentIcons";
 import { getProductsByCategory, type Localized } from "@/lib/mock-data";
 
 const TOP_SELLING_CATEGORIES = ["flower-plants", "fruit-trees", "ornamental-plants"] as const;
@@ -71,10 +72,8 @@ export function Footer() {
           <div>
             <p className="mb-2 font-semibold text-white">{t("paymentSystem")}</p>
             <div className="flex flex-wrap gap-2">
-              {["bKash", "Nagad", "Rocket", "Visa", "MasterCard", "Amex"].map((m) => (
-                <span key={m} className="rounded bg-white px-2 py-1 text-xs font-semibold text-ink-900">
-                  {m}
-                </span>
+              {PAYMENT_METHODS.map((Method, i) => (
+                <Method key={i} />
               ))}
             </div>
           </div>
