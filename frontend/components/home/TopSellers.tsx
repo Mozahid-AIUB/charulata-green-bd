@@ -15,9 +15,9 @@ export function TopSellers({ compact = false }: { compact?: boolean }) {
   const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
 
-  // slide width: narrow box shows ~1, full row shows up to 4
+  // slide width: compact box shows 2-up on small screens, 1 in the narrow desktop column
   const slideBasis = compact
-    ? "flex-[0_0_85%]"
+    ? "min-w-0 flex-[0_0_50%] sm:flex-[0_0_45%] lg:flex-[0_0_100%]"
     : "min-w-0 flex-[0_0_50%] sm:flex-[0_0_33%] lg:flex-[0_0_25%]";
 
   const wrapper = compact

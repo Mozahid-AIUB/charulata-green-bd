@@ -1,8 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
-import { Search, Heart, ShoppingCart, User, Leaf } from "lucide-react";
+import { Search, Heart, ShoppingCart, User, Leaf, Menu, X } from "lucide-react";
 import { Facebook, Twitter, Instagram, Linkedin } from "./SocialIcons";
 import { LanguageToggle } from "./LanguageToggle";
 
@@ -11,6 +12,7 @@ export function Header() {
   const tNav = useTranslations("nav");
   const tHeader = useTranslations("header");
   const p = (path: string) => `/${locale}${path}`;
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   const navItems = [
     { key: "home", href: "" },
@@ -25,10 +27,21 @@ export function Header() {
       <div className="mx-auto max-w-7xl px-4">
         {/* top bar: logo · nav · social + toggle */}
         <div className="flex items-center justify-between gap-4 py-3">
-          <Link href={p("")} className="flex items-center gap-1.5 font-serif text-2xl font-semibold italic tracking-wide">
-            <Leaf className="h-6 w-6 -rotate-45 text-brand-400" fill="currentColor" strokeWidth={1} />
-            Charulata
-          </Link>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              aria-label="Menu"
+              aria-expanded={mobileOpen}
+              onClick={() => setMobileOpen((v) => !v)}
+              className="text-white md:hidden"
+            >
+              {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+            <Link href={p("")} className="flex items-center gap-1.5 font-serif text-xl font-semibold italic tracking-wide sm:text-2xl">
+              <Leaf className="h-6 w-6 -rotate-45 text-brand-400" fill="currentColor" strokeWidth={1} />
+              Charulata
+            </Link>
+          </div>
           <nav className="hidden items-center gap-7 text-sm font-medium uppercase tracking-wide md:flex">
             {navItems.map((item) => (
               <Link key={item.key} href={p(item.href)} className="text-white/80 transition hover:text-white">
@@ -77,6 +90,22 @@ export function Header() {
           </button>
           </div>
         </div>
+
+        {/* mobile nav drawer */}
+        {mobileOpen && (
+          <nav className="flex flex-col gap-1 border-t border-white/10 pb-3 md:hidden">
+            {navItems.map((item) => (
+              <Link
+                key={item.key}
+                href={p(item.href)}
+                onClick={() => setMobileOpen(false)}
+                className="rounded px-2 py-2.5 text-sm font-medium uppercase tracking-wide text-white/80 transition hover:bg-white/5 hover:text-white"
+              >
+                {tNav(item.key)}
+              </Link>
+            ))}
+          </nav>
+        )}
       </div>
     </header>
   );
