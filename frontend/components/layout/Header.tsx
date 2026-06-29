@@ -47,20 +47,20 @@ export function Header() {
           </div>
         </div>
 
-        {/* search row: full-width input + green button + wishlist/cart/account */}
+        {/* search row: roomy but capped search + wishlist/cart/account */}
         <div className="flex items-center gap-3 pb-3">
-          <div className="flex flex-1 overflow-hidden rounded-md bg-white ring-1 ring-white/20">
+          <div className="flex h-10 max-w-2xl flex-1 overflow-hidden rounded-full bg-white ring-1 ring-white/15">
             <input
               type="search"
               placeholder={tHeader("searchPlaceholder")}
-              className="w-full bg-white px-4 py-3 text-sm text-ink-900 placeholder:text-gray-400 focus:outline-none"
+              className="w-full bg-white px-4 text-sm text-ink-900 placeholder:text-gray-400 focus:outline-none"
             />
             <button
               type="button"
               aria-label="Search"
               className="flex items-center justify-center bg-brand-600 px-5 text-white transition hover:bg-brand-700"
             >
-              <Search className="h-5 w-5" />
+              <Search className="h-4 w-4" />
             </button>
           </div>
           <button type="button" aria-label={tHeader("wishlist")} className="relative text-white/90 hover:text-white">
