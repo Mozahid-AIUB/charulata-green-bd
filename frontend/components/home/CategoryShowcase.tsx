@@ -35,7 +35,8 @@ export function CategoryShowcase({ category }: { category: Category }) {
     >
       <div className="mb-6 flex flex-wrap items-center justify-between gap-3 border-b border-brand-100 pb-3">
         <div className="flex flex-wrap items-center gap-4">
-          <h2 className="text-2xl font-semibold text-brand-900">
+          <h2 className="flex items-center gap-3 font-serif text-2xl font-semibold text-brand-900">
+            <span className="h-7 w-1.5 rounded-full bg-gradient-to-b from-brand-500 to-brand-700" aria-hidden />
             {category.name[locale] ?? category.name.en}
           </h2>
           <div className="flex flex-wrap gap-1 text-sm">

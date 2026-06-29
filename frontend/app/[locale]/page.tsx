@@ -19,10 +19,10 @@ export default async function Home({ params }: Props) {
         <div className="hidden lg:block">
           <CategorySidebar />
         </div>
-        <div className="flex">
+        <div className="flex min-w-0">
           <HeroCarousel />
         </div>
-        <div className="hidden lg:flex">
+        <div className="hidden min-w-0 lg:flex">
           <TopSellers compact />
         </div>
       </div>
@@ -33,10 +33,14 @@ export default async function Home({ params }: Props) {
         <TopSellers compact />
       </div>
 
-      {/* full-width category rows */}
-      {categories.map((category) => (
-        <CategoryShowcase key={category.id} category={category} />
-      ))}
+      {/* full-width category rows — alternating subtle background bands */}
+      <div className="mt-4 space-y-2">
+        {categories.map((category, i) => (
+          <div key={category.id} className={i % 2 === 1 ? "rounded-2xl bg-white/60" : ""}>
+            <CategoryShowcase category={category} />
+          </div>
+        ))}
+      </div>
     </main>
   );
 }
