@@ -1,15 +1,34 @@
-import { setRequestLocale, getTranslations } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
+import { CategorySidebar } from "@/components/layout/CategorySidebar";
+import { HeroCarousel } from "@/components/home/HeroCarousel";
+import { TopSellers } from "@/components/home/TopSellers";
+import { CategoryShowcase } from "@/components/home/CategoryShowcase";
+import { getCategories } from "@/lib/mock-data";
 
 type Props = { params: Promise<{ locale: string }> };
 
 export default async function Home({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations("hero");
+  const categories = getCategories();
 
   return (
-    <main className="p-10">
-      <h1 className="text-3xl font-bold text-brand-900">{t("tagline")}</h1>
+    <main className="mx-auto max-w-7xl px-4 py-6">
+      {/* sidebar · hero · top-sellers — the charulata homepage grid */}
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-[16rem_1fr_20rem]">
+        <div className="hidden lg:block">
+          <CategorySidebar />
+        </div>
+        <HeroCarousel />
+        <div className="hidden lg:block">
+          <TopSellers compact />
+        </div>
+      </div>
+
+      {/* full-width category rows */}
+      {categories.map((category) => (
+        <CategoryShowcase key={category.id} category={category} />
+      ))}
     </main>
   );
 }
