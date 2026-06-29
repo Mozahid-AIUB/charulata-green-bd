@@ -1,14 +1,25 @@
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
-import { Geist, Geist_Mono, Noto_Sans_Bengali } from "next/font/google";
+import { Plus_Jakarta_Sans, Fraunces, Noto_Sans_Bengali } from "next/font/google";
 import { routing } from "@/i18n/routing";
 import { Header } from "@/components/layout/Header";
 import { TrustBar } from "@/components/layout/TrustBar";
 import { Footer } from "@/components/layout/Footer";
 
-const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
-const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
+// body: Plus Jakarta Sans — clean, modern, a touch more character than Geist
+const jakarta = Plus_Jakarta_Sans({
+  variable: "--font-sans",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+// display: Fraunces — an organic soft-serif, fitting for a plant brand
+const fraunces = Fraunces({
+  variable: "--font-serif",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+});
 const notoBengali = Noto_Sans_Bengali({
   variable: "--font-bengali",
   subsets: ["bengali"],
@@ -34,7 +45,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <html
       lang={locale}
-      className={`${geistSans.variable} ${geistMono.variable} ${notoBengali.variable} h-full antialiased`}
+      className={`${jakarta.variable} ${fraunces.variable} ${notoBengali.variable} h-full antialiased`}
     >
       <body className={`min-h-full flex flex-col ${locale === "bn" ? "font-bengali" : "font-sans"}`}>
         <NextIntlClientProvider>
