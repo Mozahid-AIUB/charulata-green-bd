@@ -26,10 +26,31 @@
   },
   "footer": {
     "tagline": "Buy green to save green.",
-    "quickLinks": "Quick Links",
+    "quickLinks": "Useful Links",
     "contact": "Contact",
-    "followUs": "Follow Us",
-    "rights": "All rights reserved."
+    "followUs": "Our Social Links",
+    "rights": "All rights reserved.",
+    "questions": "Have questions? Call us 24/7",
+    "address": "Nursery: Charabag, Ashulia, Savar, Dhaka",
+    "office": "Office: House-13, Road-3F, Sector-9, Uttara, Dhaka-1230",
+    "paymentSystem": "Payment System",
+    "shippingSystem": "Shipping System",
+    "about": "About Us",
+    "contactUs": "Contact Us",
+    "privacy": "Privacy Policy",
+    "returns": "Returns",
+    "terms": "Terms & Conditions",
+    "sitemap": "Our Sitemap"
+  },
+  "trust": {
+    "freeGiftTitle": "Free Gift",
+    "freeGiftText": "Up to 5,000Tk order",
+    "secureTitle": "Secure Payment",
+    "secureText": "100% Secure payment",
+    "supportTitle": "Customer Support",
+    "supportText": "Call or email us 24/7",
+    "resendTitle": "Easy Resend",
+    "resendText": "Any back within 7 days"
   },
   "product": {
     "addToCart": "Add to cart",
