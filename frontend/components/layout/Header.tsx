@@ -47,22 +47,23 @@ export function Header() {
           </div>
         </div>
 
-        {/* search row: roomy but capped search + wishlist/cart/account */}
-        <div className="flex items-center gap-3 pb-3">
-          <div className="flex h-10 max-w-2xl flex-1 overflow-hidden rounded-full bg-white ring-1 ring-white/15">
+        {/* search row: search fills the space, icons sit right beside it */}
+        <div className="flex items-center gap-4 pb-3">
+          <form className="flex h-11 flex-1 items-stretch overflow-hidden rounded-full bg-white shadow-sm">
             <input
               type="search"
               placeholder={tHeader("searchPlaceholder")}
-              className="w-full bg-white px-4 text-sm text-ink-900 placeholder:text-gray-400 focus:outline-none"
+              className="min-w-0 flex-1 bg-white pl-5 pr-2 text-sm text-ink-900 placeholder:text-gray-400 focus:outline-none"
             />
             <button
-              type="button"
+              type="submit"
               aria-label="Search"
-              className="flex items-center justify-center bg-brand-600 px-5 text-white transition hover:bg-brand-700"
+              className="flex w-12 items-center justify-center bg-brand-600 text-white transition hover:bg-brand-700"
             >
               <Search className="h-4 w-4" />
             </button>
-          </div>
+          </form>
+          <div className="flex items-center gap-4">
           <button type="button" aria-label={tHeader("wishlist")} className="relative text-white/90 hover:text-white">
             <Heart className="h-6 w-6" />
             <span className="absolute -right-2 -top-2 rounded-full bg-brand-500 px-1.5 text-xs">0</span>
@@ -74,6 +75,7 @@ export function Header() {
           <button type="button" aria-label={tHeader("account")} className="text-white/90 hover:text-white">
             <User className="h-6 w-6" />
           </button>
+          </div>
         </div>
       </div>
     </header>

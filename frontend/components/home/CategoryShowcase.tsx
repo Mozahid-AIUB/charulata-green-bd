@@ -7,7 +7,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { getProductsByCategory, type Category, type Localized } from "@/lib/mock-data";
 import { ProductCard } from "./ProductCard";
 
-const INITIAL_COUNT = 4;
+const INITIAL_COUNT = 6;
 const TABS = ["tabAll", "tabLocal", "tabForeign", "tabSeasonal"] as const;
 
 export function CategoryShowcase({ category }: { category: Category }) {
@@ -63,7 +63,7 @@ export function CategoryShowcase({ category }: { category: Category }) {
         </Link>
       </div>
 
-      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
         {visible.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}

@@ -66,7 +66,7 @@ export function HeroCarousel() {
         <div className="flex">
           {slides.map((s) => (
             <div key={s.id} className="relative min-w-0 flex-[0_0_100%]">
-              <div className="relative flex min-h-[360px] flex-col items-center justify-center gap-5 overflow-hidden px-6 py-16 text-center text-white">
+              <div className="relative flex min-h-[460px] flex-col items-center justify-center gap-5 overflow-hidden px-6 py-16 text-center text-white">
                 {/* real plant photo */}
                 <Image
                   src={s.image}
@@ -76,9 +76,13 @@ export function HeroCarousel() {
                   sizes="(max-width: 1024px) 100vw, 60vw"
                   className="object-cover"
                 />
-                {/* dark green gradient overlay for text readability + depth */}
+                {/* strong dark overlay so text stays readable over ANY photo */}
                 <div
-                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-brand-900/90 via-brand-800/50 to-brand-900/30"
+                  className="pointer-events-none absolute inset-0 bg-ink-900/55"
+                  aria-hidden
+                />
+                <div
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-900/80 via-transparent to-ink-900/40"
                   aria-hidden
                 />
                 <span className="relative -rotate-2 rounded-md bg-accent-500 px-4 py-1.5 text-sm font-bold uppercase tracking-wide shadow-md">
