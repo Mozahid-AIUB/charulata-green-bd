@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fafaf7;
+  --foreground: #1f2a20;
 }
 
 @theme inline {
@@ -22,10 +22,19 @@
   --color-brand-700: #26562f;
   --color-brand-800: #1e4326;
   --color-brand-900: #16331c;
+
+  /* near-black header/footer (matches charulata.green) */
+  --color-ink-800: #232323;
+  --color-ink-900: #1a1a1a;
+  --color-ink-950: #111111;
+
+  /* terracotta accent — "Don't Miss" tag, SALE price-tags */
+  --color-accent-400: #e06a52;
+  --color-accent-500: #d24a3d;
+  --color-accent-600: #b53a30;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }

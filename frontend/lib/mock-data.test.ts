@@ -11,9 +11,24 @@ describe("mock-data", () => {
   });
 
   it("filters products by category slug", () => {
-    const categories = getCategories();
-    const firstSlug = categories[0].slug;
+    const firstSlug = getCategories()[0].slug;
     const products = getProductsByCategory(firstSlug);
     expect(products.every((p) => p.category === firstSlug)).toBe(true);
+  });
+
+  it("gives every product a bilingual name", () => {
+    for (const p of getTopSellers()) {
+      expect(typeof p.name.en).toBe("string");
+      expect(typeof p.name.bn).toBe("string");
+      expect(p.name.en.length).toBeGreaterThan(0);
+      expect(p.name.bn.length).toBeGreaterThan(0);
+    }
+  });
+
+  it("gives every category a bilingual name", () => {
+    for (const c of getCategories()) {
+      expect(c.name.en.length).toBeGreaterThan(0);
+      expect(c.name.bn.length).toBeGreaterThan(0);
+    }
   });
 });
