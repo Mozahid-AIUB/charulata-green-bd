@@ -1,0 +1,39 @@
+{
+  "nav": {
+    "home": "Home",
+    "shop": "Shop",
+    "about": "About Us",
+    "contact": "Contact Us",
+    "booking": "Book Appointment"
+  },
+  "header": {
+    "searchPlaceholder": "Search for products",
+    "wishlist": "Wishlist",
+    "cart": "Cart",
+    "account": "Account"
+  },
+  "sidebar": {
+    "menu": "MENU"
+  },
+  "hero": {
+    "tagline": "Country's largest online nursery",
+    "cta": "Start shopping",
+    "dontMiss": "Don't Miss"
+  },
+  "sections": {
+    "topSellers": "Top Sellers",
+    "viewAll": "View all"
+  },
+  "footer": {
+    "tagline": "Buy green to save green.",
+    "quickLinks": "Quick Links",
+    "contact": "Contact",
+    "followUs": "Follow Us",
+    "rights": "All rights reserved."
+  },
+  "product": {
+    "addToCart": "Add to cart",
+    "outOfStock": "Out of stock",
+    "soldOut": "Sold out"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "nav": {
+    "home": "হোম",
+    "shop": "শপ",
+    "about": "আমাদের সম্পর্কে",
+    "contact": "যোগাযোগ",
+    "booking": "অ্যাপয়েন্টমেন্ট বুক করুন"
+  },
+  "header": {
+    "searchPlaceholder": "পণ্য খুঁজুন",
+    "wishlist": "উইশলিস্ট",
+    "cart": "কার্ট",
+    "account": "অ্যাকাউন্ট"
+  },
+  "sidebar": {
+    "menu": "মেনু"
+  },
+  "hero": {
+    "tagline": "দেশের সবচেয়ে বড় অনলাইন নার্সারি",
+    "cta": "কেনাকাটা শুরু করুন",
+    "dontMiss": "মিস করবেন না"
+  },
+  "sections": {
+    "topSellers": "টপ সেলার",
+    "viewAll": "সব দেখুন"
+  },
+  "footer": {
+    "tagline": "সবুজ কিনুন, সবুজ বাঁচান।",
+    "quickLinks": "দ্রুত লিংক",
+    "contact": "যোগাযোগ",
+    "followUs": "ফলো করুন",
+    "rights": "সর্বস্বত্ব সংরক্ষিত।"
+  },
+  "product": {
+    "addToCart": "কার্টে যোগ করুন",
+    "outOfStock": "স্টক নেই",
+    "soldOut": "বিক্রি শেষ"
+  }
+}
