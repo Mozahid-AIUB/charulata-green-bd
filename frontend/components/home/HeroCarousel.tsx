@@ -61,7 +61,7 @@ export function HeroCarousel() {
   }, [emblaApi]);
 
   return (
-    <section className="relative overflow-hidden rounded-xl shadow-sm">
+    <section className="relative w-full overflow-hidden rounded-xl shadow-sm">
       <div className="overflow-hidden" ref={emblaRef}>
         <div className="flex">
           {slides.map((s) => (
@@ -76,13 +76,13 @@ export function HeroCarousel() {
                   sizes="(max-width: 1024px) 100vw, 60vw"
                   className="object-cover"
                 />
-                {/* strong dark overlay so text stays readable over ANY photo */}
+                {/* strong, even dark overlay so text stays readable over ANY photo */}
                 <div
-                  className="pointer-events-none absolute inset-0 bg-ink-900/55"
+                  className="pointer-events-none absolute inset-0 bg-ink-900/60"
                   aria-hidden
                 />
                 <div
-                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-900/80 via-transparent to-ink-900/40"
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-r from-ink-900/60 via-ink-900/30 to-ink-900/60"
                   aria-hidden
                 />
                 <span className="relative -rotate-2 rounded-md bg-accent-500 px-4 py-1.5 text-sm font-bold uppercase tracking-wide shadow-md">

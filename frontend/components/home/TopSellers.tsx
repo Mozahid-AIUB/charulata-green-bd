@@ -21,7 +21,7 @@ export function TopSellers({ compact = false }: { compact?: boolean }) {
     : "min-w-0 flex-[0_0_50%] sm:flex-[0_0_33%] lg:flex-[0_0_25%]";
 
   const wrapper = compact
-    ? "rounded-xl border border-brand-100 bg-white p-4 shadow-sm"
+    ? "flex h-full w-full flex-col rounded-xl border border-brand-100 bg-white p-4 shadow-sm"
     : "mx-auto max-w-7xl px-4 py-10";
 
   return (
