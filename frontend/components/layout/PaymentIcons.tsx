@@ -94,3 +94,88 @@ export const PAYMENT_METHODS = [
   Mastercard,
   Amex,
 ] as const;
+
+/* ---- courier / shipping partners ---- */
+
+export function SteadFast() {
+  return (
+    <Chip>
+      <span className="text-sm font-extrabold tracking-tight">
+        <span className="text-[#1a7a3c]">Steed</span>
+        <span className="text-[#0e2e6e]">Fast</span>
+      </span>
+    </Chip>
+  );
+}
+
+export function RedX() {
+  return (
+    <Chip>
+      <span className="text-sm font-extrabold uppercase">
+        <span className="text-[#e30613]">Red</span>
+        <span className="text-ink-900">X</span>
+      </span>
+    </Chip>
+  );
+}
+
+export function Sundarban() {
+  return (
+    <Chip>
+      <span className="rounded-sm bg-[#f6921e] px-1.5 py-0.5 text-[10px] font-extrabold uppercase leading-none text-white">
+        Sundarban
+      </span>
+    </Chip>
+  );
+}
+
+export function ECourier() {
+  return (
+    <Chip>
+      <span className="text-sm font-extrabold lowercase">
+        <span className="text-[#16a34a]">e</span>
+        <span className="text-ink-900">Courier</span>
+      </span>
+    </Chip>
+  );
+}
+
+export function DeliveryTiger() {
+  return (
+    <Chip>
+      <span className="text-[11px] font-extrabold leading-none">
+        <span className="text-[#f6921e]">Delivery</span>
+        <span className="text-ink-900"> Tiger</span>
+      </span>
+    </Chip>
+  );
+}
+
+export function Pathao() {
+  return (
+    <Chip>
+      <span className="text-sm font-extrabold lowercase text-[#e30613]">pathao</span>
+    </Chip>
+  );
+}
+
+export function CarryBee() {
+  return (
+    <Chip>
+      <span className="text-sm font-extrabold">
+        <span className="text-[#f5b301]">Carry</span>
+        <span className="text-ink-900">Bee</span>
+      </span>
+    </Chip>
+  );
+}
+
+export const SHIPPING_PARTNERS = [
+  SteadFast,
+  RedX,
+  Sundarban,
+  ECourier,
+  DeliveryTiger,
+  Pathao,
+  CarryBee,
+] as const;
