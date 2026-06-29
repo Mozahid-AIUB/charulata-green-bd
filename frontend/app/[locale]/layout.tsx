@@ -1,6 +1,6 @@
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
-import { setRequestLocale } from "next-intl/server";
+import { setRequestLocale, getMessages } from "next-intl/server";
 import { Plus_Jakarta_Sans, Fraunces, Noto_Sans_Bengali } from "next/font/google";
 import { routing } from "@/i18n/routing";
 import { Header } from "@/components/layout/Header";
@@ -41,6 +41,7 @@ export default async function LocaleLayout({ children, params }: Props) {
     notFound();
   }
   setRequestLocale(locale);
+  const messages = await getMessages();
 
   return (
     <html
@@ -48,7 +49,7 @@ export default async function LocaleLayout({ children, params }: Props) {
       className={`${jakarta.variable} ${fraunces.variable} ${notoBengali.variable} h-full antialiased`}
     >
       <body className={`min-h-full flex flex-col ${locale === "bn" ? "font-bengali" : "font-sans"}`}>
-        <NextIntlClientProvider>
+        <NextIntlClientProvider messages={messages}>
           <Header />
           <div className="flex-1">{children}</div>
           <TrustBar />
